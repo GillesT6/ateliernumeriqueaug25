@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atelier interactif sur les métiers techniques du numérique au Bénin : développement web, analyse de données, cybersécurité. Découvrez les opportunités et parcours inspirants.">
+    <meta name="keywords" content="Métiers techniques, numérique, développement web, data, cybersécurité, Bénin, reconversion professionnelle, opportunités">
+    <meta name="author" content="Gilles TOSSA">
+    <title>Métiers Techniques du Numérique - Atelier Interactif</title>
+    
+    <!-- CDN Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="logo floating">
+        <i class="fas fa-rocket"></i> Métiers Tech
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Chargement de l'expérience interactive...</p>
+    </div>
+
+    <canvas class="particles-bg" id="particles"></canvas>
+
+    <div class="container">
+        <!-- Slide 1: Introduction & Contexte -->
+        <div class="slide active intro-animation" id="slide-1">
+            <h1><i class="fas fa-rocket" style="color: var(--emerald-500);"></i> Métiers Techniques du Numérique</h1>
+            <div style="background: linear-gradient(135deg, var(--primary-500), var(--purple-500)); color: white; padding: 2rem; border-radius: 20px; margin: 2rem 0; text-align: center;">
+                <h2 style="color: white; margin-bottom: 1rem;">Développement web • Analyse de données • Cybersécurité</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.2rem; margin: 0;">Découvrez quelques-uns des métiers qui façonnent l'avenir numérique du Bénin et du monde</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                <div class="card pulse">
+                    <h3><i class="fas fa-bullseye" style="color: var(--emerald-500);"></i> Objectifs de l'atelier</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.75rem 0; padding-left: 2rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Présenter concrètement les différents métiers techniques (développement web, cybersécurité, data, cloud, etc.)
+                        </li>
+                        <li style="margin: 0.75rem 0; padding-left: 2rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Montrer leurs liens avec les enjeux économiques, sociaux et culturels du moment
+                        </li>
+                        <li style="margin: 0.75rem 0; padding-left: 2rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Échanger avec des professionnels du secteur
+                        </li>
+                        <li style="margin: 0.75rem 0; padding-left: 2rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Identifier les pistes de formation et opportunités
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-users" style="color: var(--primary-500);"></i> Public cible</h3>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: var(--primary-50); padding: 1rem; border-radius: 12px; margin: 0.5rem 0; border-left: 4px solid var(--primary-500);">
+                            <strong>Professionnels expérimentés</strong> en reconversion (enseignement, télécoms, gestion...)
+                        </div>
+                        <div style="background: var(--emerald-50); padding: 1rem; border-radius: 12px; margin: 0.5rem 0; border-left: 4px solid var(--emerald-500);">
+                            <strong>Étudiants et jeunes diplômés</strong> en quête de projet professionnel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Pourquoi parler de ces métiers aujourd'hui ?</h3>
+                <p>Nous parlons aujourd’hui des métiers techniques du numérique, parce que nous assistons à une <strong>accélération</strong> sans précédent de la <strong>demande</strong> pour ces <strong>compétences</strong>, et ce à l’échelle <strong>mondiale</strong>. <strong>L’automatisation, l’intelligence artificielle, la digitalisation des services publics et privés</strong> nécessitent des <strong>profils capables de concevoir, maintenir et sécuriser les systèmes numériques</strong>. Pourtant, <strong>beaucoup de jeunes, d’étudiants ou de professionnels</strong> en reconversion n’ont <strong>pas une vision claire des opportunités</strong> qu’offrent ces métiers techniques, <strong>ni des chemins pour y accéder</strong>.</p>
+                <p>Au <strong>Bénin</strong>, le <strong>Plan national de développement du numérique</strong> met en avant la <strong>nécessité de former une nouvelle génération de talents locaux</strong> capables de porter les ambitions de <strong>transformation numérique du pays</strong>. Que ce soit <strong>pour créer des applications adaptées aux réalités locales, assurer la cybersécurité des données, analyser l'information pour une meilleure prise de décision ou développer des infrastructures numériques souveraines</strong>, les <strong>compétences techniques sont devenues stratégiques</strong>.
+
+À l’échelle <strong>mondiale</strong>, les <strong>entreprises et les organisations</strong> publiques <strong>s’arrachent ces profils</strong>. Le numérique est à la fois un levier d'inclusion et un vecteur de compétitivité. La maîtrise des métiers techniques peut permettre aux pays du Sud de ne plus être de simples consommateurs de technologies, mais de devenir aussi producteurs et innovateurs.</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Panorama des métiers -->
+        <div class="slide" id="slide-2">
+            <h1><i class="fas fa-sitemap"></i> Panorama des Métiers & Familles de Rôles</h1>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-label">DATA</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Analyst, Scientist, Engineer, BI Developer</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><i class="fas fa-code"></i></div>
+                    <div class="stat-label">DÉVELOPPEMENT</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Front-end, Back-end, Full Stack, Mobile</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><i class="fas fa-shield-alt"></i></div>
+                    <div class="stat-label">CYBERSÉCURITÉ</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Pentester, Analyste SOC, Responsable Sécurité</p>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Métier</th>
+                        <th>Mission clé</th>
+                        <th>Outils principaux</th>
+                        <th>Accessibilité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Data Analyst</strong></td>
+                        <td>Transforme les données en informations exploitables</td>
+                        <td>Excel, Power BI, Tableau, SQL</td>
+                        <td><span class="difficulty-easy">🟢 Facile</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Scientist</strong></td>
+                        <td>Utilise l'IA pour prédire et optimiser</td>
+                        <td>Python, R, TensorFlow, scikit-learn</td>
+                        <td><span class="difficulty-hard">🔴 Avancé</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Front-end Developer</strong></td>
+                        <td>Crée l'interface utilisateur des applications</td>
+                        <td>VS Code, React, Angular</td>
+                        <td><span class="difficulty-easy">🟢 Facile</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Back-end Developer</strong></td>
+                        <td>Développe la logique serveur et les API</td>
+                        <td>Node.js, PHP, MySQL, Java</td>
+                        <td><span class="difficulty-medium">🟡 Intermédiaire</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pentester</strong></td>
+                        <td>Teste la sécurité en simulant des attaques</td>
+                        <td>Kali Linux, Metasploit</td>
+                        <td><span class="difficulty-medium">🟡 Intermédiaire</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analyste SOC</strong></td>
+                        <td>Surveille les menaces informatiques</td>
+                        <td>Splunk, Wireshark</td>
+                        <td><span class="difficulty-easy">🟢 Facile</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Slide 3: Importance & débouchés -->
+        <div class="slide" id="slide-3">
+            <h1><i class="fas fa-chart-bar"></i> Importance & Débouchés</h1>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                <div class="card">
+                    <h3><i class="fas fa-globe-africa" style="color: var(--emerald-500);"></i> Marché Local (Bénin)</h3>
+                    <div class="stats-grid" style="margin: 1rem 0;">
+                        <div style="background: var(--emerald-100); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--emerald-600);">15%</div>
+                            <div style="color: var(--emerald-700); font-weight: 500;">Croissance annuelle</div>
+                        </div>
+                        <div style="background: var(--primary-100); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">5000+</div>
+                            <div style="color: var(--primary-700); font-weight: 500;">Postes créés/an</div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="color: var(--primary-600); margin: 1rem 0;">Fourchettes salariales</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; padding: 0.75rem; background: var(--gray-50); border-radius: 8px; border-left: 4px solid var(--primary-500);">
+                            <strong>Data Analyst:</strong> 244K - 820K XOF/mois
+                        </li>
+                        <li style="margin: 0.5rem 0; padding: 0.75rem; background: var(--gray-50); border-radius: 8px; border-left: 4px solid var(--emerald-500);">
+                            <strong>Data Scientist:</strong> 250K - 1M+ XOF/mois
+                        </li>
+                        <li style="margin: 0.5rem 0; padding: 0.75rem; background: var(--gray-50); border-radius: 8px; border-left: 4px solid var(--orange-500);">
+                            <strong>Développeurs:</strong> Variables selon expérience
+                        </li>
+                        <li style="margin: 0.5rem 0; padding: 0.75rem; background: var(--gray-50); border-radius: 8px; border-left: 4px solid var(--purple-500);">
+                            <strong>Cybersécurité:</strong> Forte demande, salaires compétitifs
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-globe" style="color: var(--primary-500);"></i> Marché International</h3>
+                    <div class="stats-grid" style="margin: 1rem 0;">
+                        <div style="background: var(--primary-100); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">85M</div>
+                            <div style="color: var(--primary-700); font-weight: 500;">Pénurie de talents</div>
+                        </div>
+                        <div style="background: var(--emerald-100); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--emerald-600);">$100K+</div>
+                            <div style="color: var(--emerald-700); font-weight: 500;">Salaires possible/an</div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="color: var(--emerald-600); margin: 1rem 0;">Opportunités Remote</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-laptop" style="position: absolute; left: 0; color: var(--primary-500);"></i>
+                            Télétravail normalisé post-COVID
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-freelance" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Freelance: $20-100/heure
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-passport" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            Visas talents facilités
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-handshake" style="position: absolute; left: 0; color: var(--purple-500);"></i>
+                            Programmes comme Andela
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Autres Formes d'Opportunités</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="background: rgba(255, 255, 255, 0.7); padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--primary-600);"><i class="fas fa-user-freelance"></i> Freelance</h4>
+                        <p>Missions ponctuelles ou récurrentes en remote</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.7); padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--emerald-600);"><i class="fas fa-rocket"></i> Entrepreneuriat</h4>
+                        <p>Création de services digitaux et startups tech</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.7); padding: 1.5rem; border-radius: 12px;">
+                        <h4 style="color: var(--orange-600);"><i class="fas fa-certificate"></i> Certifications</h4>
+                        <p>Formation continue pour rester compétitif</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Études de cas & parcours inspirants -->
+        <div class="slide" id="slide-4">
+            <h1><i class="fas fa-user-friends"></i> Études de Cas & Parcours Inspirants</h1>
+            
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem; color: var(--gray-700);">
+                La reconversion numérique n'est pas réservée aux jeunes ! Des profils expérimentés réussissent brillamment.
+            </p>
+            
+            <div class="job-card">
+                <div class="job-title">
+                    <i class="fas fa-user-graduate"></i>
+                    Cas 1 - Mariam, 35 ans (Bénin)
+                    <span style="background: var(--emerald-100); color: var(--emerald-700); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; margin-left: auto;">Ex-Comptable → Data Analyst</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 style="color: var(--primary-600);">Point de départ</h4>
+                                <p>Comptable dans une PME à Cotonou, outils manuels</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 style="color: var(--primary-600);">Formation</h4>
+                                <p>6 mois : Excel, Power BI, SQL (centre local + MOOC)</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 style="color: var(--primary-600);">Premier emploi</h4>
+                                <p>Assistante Data ONG → Data Analyst télécom</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="text-align: center;">
+                            <h4 style="color: var(--emerald-600);">Clé de succès</h4>
+                            <p style="font-style: italic;">"Je savais lire les chiffres, j'ai juste appris à les mettre dans les bons outils"</p>
+                            <div class="skills-grid" style="justify-content: center; margin-top: 1rem;">
+                                <span class="skill-tag">Excel</span>
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-title">
+                    <i class="fas fa-network-wired"></i>
+                    Cas 2 - Koffi, 40 ans (Togo)
+                    <span style="background: var(--purple-100); color: var(--purple-700); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; margin-left: auto;">Ex-Technicien → Analyste SOC</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 style="color: var(--purple-600);">Point de départ</h4>
+                                <p>Technicien réseau, installations et dépannage</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 style="color: var(--purple-600);">Formation</h4>
+                                <p>9 mois Cybersécurité + CompTIA Security+ et CEH</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 style="color: var(--purple-600);">Évolution</h4>
+                                <p>Analyste SOC remote pour entreprise ivoirienne</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="text-align: center;">
+                            <h4 style="color: var(--purple-600);">Atout majeur</h4>
+                            <p>Expérience réseau + certifications reconnues</p>
+                            <div class="skills-grid" style="justify-content: center; margin-top: 1rem;">
+                                <span class="skill-tag">Pentesting</span>
+                                <span class="skill-tag">SOC</span>
+                                <span class="skill-tag">CompTIA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-title">
+                    <i class="fas fa-globe-americas"></i>
+                    Cas 3 - Aïcha, 28 ans (Sénégal)
+                    <span style="background: var(--orange-100); color: var(--orange-700); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; margin-left: auto;">Ex-Enseignante → Dev International</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 style="color: var(--orange-600);">Point de départ</h4>
+                                <p>Professeure de mathématiques au lycée</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 style="color: var(--orange-600);">Formation</h4>
+                                <p>12 mois Full Stack via bootcamp Andela</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 style="color: var(--orange-600);">Succès</h4>
+                                <p>Freelance front-end pour clients États-Unis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="text-align: center;">
+                            <h4 style="color: var(--orange-600);">Forces clés</h4>
+                            <p>Anglais + rigueur + logique mathématique</p>
+                            <div class="skills-grid" style="justify-content: center; margin-top: 1rem;">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Points Clés à Retenir</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-door-open" style="font-size: 2rem; color: var(--primary-500); margin-bottom: 0.5rem;"></i>
+                        <h4>Plusieurs portes d'entrée</h4>
+                        <p>Chaque expérience peut devenir un atout</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-clock" style="font-size: 2rem; color: var(--emerald-500); margin-bottom: 0.5rem;"></i>
+                        <h4>Reconversion possible</h4>
+                        <p>Même après 35-40 ans</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-project-diagram" style="font-size: 2rem; color: var(--orange-500); margin-bottom: 0.5rem;"></i>
+                        <h4>Projets réels comptent</h4>
+                        <p>Même bénévoles pour décrocher un job</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Compétences & outils essentiels -->
+        <div class="slide" id="slide-5">
+            <h1><i class="fas fa-tools"></i> Compétences & Outils Essentiels</h1>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                <div class="card">
+                    <h3><i class="fas fa-chart-line" style="color: var(--primary-500);"></i> Domaine DATA</h3>
+                    <h4 style="color: var(--primary-600); margin: 1rem 0;">Compétences clés</h4>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Excel avancé</span>
+                        <span class="skill-tag">Power BI/Tableau</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Statistiques</span>
+                        <span class="skill-tag">Python/R</span>
+                    </div>
+                    <h4 style="color: var(--primary-600); margin: 1rem 0 0.5rem 0;">Niveau d'entrée</h4>
+                    <p style="background: var(--primary-50); padding: 0.75rem; border-radius: 8px; margin: 0;">
+                        Basique en maths + appétence pour l'analyse
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-code" style="color: var(--emerald-500);"></i> Domaine DEV</h3>
+                    <h4 style="color: var(--emerald-600); margin: 1rem 0;">Compétences clés</h4>
+                    <div class="skills-grid">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React/Angular</span>
+                        <span class="skill-tag">Node.js/PHP</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                    </div>
+                    <h4 style="color: var(--emerald-600); margin: 1rem 0 0.5rem 0;">Niveau d'entrée</h4>
+                    <p style="background: var(--emerald-50); padding: 0.75rem; border-radius: 8px; margin: 0;">
+                        Logique et curiosité technique
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-shield-alt" style="color: var(--orange-500);"></i> Domaine CYBER</h3>
+                    <h4 style="color: var(--orange-600); margin: 1rem 0;">Compétences clés</h4>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Réseaux</span>
+                        <span class="skill-tag">Kali Linux</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">SIEM</span>
+                    </div>
+                    <h4 style="color: var(--orange-600); margin: 1rem 0 0.5rem 0;">Niveau d'entrée</h4>
+                    <p style="background: var(--orange-50); padding: 0.75rem; border-radius: 8px; margin: 0;">
+                        Connaissances informatiques de base + rigueur
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3><i class="fas fa-heart" style="color: var(--purple-500);"></i> Soft Skills (Transversales)</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray-600);">Ces compétences sont communes aux 3 domaines et souvent décisives :</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: var(--purple-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-comments" style="color: var(--purple-500); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <h4 style="color: var(--purple-600);">Communication</h4>
+                        <p style="font-size: 0.9rem;">Présenter ses résultats clairement</p>
+                    </div>
+                    <div style="background: var(--primary-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-brain" style="color: var(--primary-500); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <h4 style="color: var(--primary-600);">Problem Solving</h4>
+                        <p style="font-size: 0.9rem;">Esprit critique et résolution</p>
+                    </div>
+                    <div style="background: var(--emerald-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-clock" style="color: var(--emerald-500); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <h4 style="color: var(--emerald-600);">Organisation</h4>
+                        <p style="font-size: 0.9rem;">Gestion du temps efficace</p>
+                    </div>
+                    <div style="background: var(--orange-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-graduation-cap" style="color: var(--orange-500); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <h4 style="color: var(--orange-600);">Apprentissage</h4>
+                        <p style="font-size: 0.9rem;">Veille technologique continue</p>
+                    </div>
+                    <div style="background: var(--gray-100); padding: 1rem; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-language" style="color: var(--gray-600); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <h4 style="color: var(--gray-700);">Anglais</h4>
+                        <p style="font-size: 0.9rem;">Documentation et échanges internationaux</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources-grid">
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap" style="color: var(--primary-500);"></i> Formations Gratuites (MOOC)</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Google Data Analytics (Coursera)
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            FreeCodeCamp (Développement)
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            TryHackMe (Cybersécurité)
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            OpenClassrooms (Tous domaines)
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-certificate" style="color: var(--orange-500);"></i> Certifications Payantes</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-star" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            Microsoft Certified Data Analyst
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-star" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            AWS Developer Associate
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-star" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            CompTIA Security+
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-star" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            Certified Ethical Hacker (CEH)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Plan d'action pour se lancer -->
+        <div class="slide" id="slide-6">
+            <h1><i class="fas fa-route"></i> Plan d'Action pour se Lancer</h1>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div class="job-card" style="border-left-color: var(--primary-500);">
+                    <div class="job-title">
+                        <span style="background: var(--primary-500); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
+                        Choisir son domaine
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-compass" style="position: absolute; left: 0; color: var(--primary-500);"></i>
+                            Évaluer ses compétences et affinités actuelles
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-map" style="position: absolute; left: 0; color: var(--primary-500);"></i>
+                            Analyser les opportunités locales et remote
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-users" style="position: absolute; left: 0; color: var(--primary-500);"></i>
+                            Discuter avec des professionnels du métier
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-card" style="border-left-color: var(--emerald-500);">
+                    <div class="job-title">
+                        <span style="background: var(--emerald-500); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
+                        Se former intelligemment
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-target" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Choisir une formation ciblée et reconnue
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-calendar" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Fixer un calendrier réaliste (10h/semaine)
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-balance-scale" style="position: absolute; left: 0; color: var(--emerald-500);"></i>
+                            Alterner théorie et pratique dès le début
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-card" style="border-left-color: var(--orange-500);">
+                    <div class="job-title">
+                        <span style="background: var(--orange-500); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
+                        Premier projet concret
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-chart-bar" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            Data: tableau de bord pour PME/ONG
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-code" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            Dev: site ou application réelle
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-shield" style="position: absolute; left: 0; color: var(--orange-500);"></i>
+                            Cyber: audit réseau commerce local
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-card" style="border-left-color: var(--purple-500);">
+                    <div class="job-title">
+                        <span style="background: var(--purple-500); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</span>
+                        Créer un portfolio
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-github" style="position: absolute; left: 0; color: var(--purple-500);"></i>
+                            GitHub, site personnel ou PDF
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-images" style="position: absolute; left: 0; color: var(--purple-500);"></i>
+                            Explications claires et visuelles
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-star" style="position: absolute; left: 0; color: var(--purple-500);"></i>
+                            2 à 5 projets maximum mais de qualité
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-card" style="border-left-color: var(--primary-600);">
+                    <div class="job-title">
+                        <span style="background: var(--primary-600); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">5</span>
+                        Gagner en visibilité
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fab fa-linkedin" style="position: absolute; left: 0; color: var(--primary-600);"></i>
+                            Optimiser profil LinkedIn avec mots-clés
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-users" style="position: absolute; left: 0; color: var(--primary-600);"></i>
+                            Rejoindre communautés (10.000 Codeurs)
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-pen" style="position: absolute; left: 0; color: var(--primary-600);"></i>
+                            Publier sur ses apprentissages
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-card" style="border-left-color: var(--emerald-600);">
+                    <div class="job-title">
+                        <span style="background: var(--emerald-600); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">6</span>
+                        Premières opportunités
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-map-marker" style="position: absolute; left: 0; color: var(--emerald-600);"></i>
+                            Local: candidatures, stages, missions
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-laptop" style="position: absolute; left: 0; color: var(--emerald-600);"></i>
+                            Remote: Upwork, Malt, Fiverr
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-network-wired" style="position: absolute; left: 0; color: var(--emerald-600);"></i>
+                            Réseautage continu
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-card" style="border-left-color: var(--orange-600);">
+                    <div class="job-title">
+                        <span style="background: var(--orange-600); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">7</span>
+                        Montée en compétences
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-search" style="position: absolute; left: 0; color: var(--orange-600);"></i>
+                            Veille technologique hebdomadaire
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-certificate" style="position: absolute; left: 0; color: var(--orange-600);"></i>
+                            Certifications pour crédibiliser
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-code-branch" style="position: absolute; left: 0; color: var(--orange-600);"></i>
+                            Projets open-source collaboratifs
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="text-align: center;">
+                <h3><i class="fas fa-clock"></i> Timeline Recommandée</h3>
+                <div style="background: linear-gradient(135deg, var(--primary-500), var(--emerald-500)); color: white; padding: 2rem; border-radius: 16px; margin-top: 1rem;">
+                    <div style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">3-6 mois</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">Formation intensive</div>
+                    <div style="font-size: 1rem; opacity: 0.9;">+</div>
+                    <div style="font-size: 2rem; font-weight: 700; margin: 1rem 0;">6-12 mois</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">Expérience pratique</div>
+                    <div style="font-size: 1rem; opacity: 0.9;">=</div>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-top: 1rem; color: var(--orange-400);">EMPLOYABLE</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: FAQ -->
+        <div class="slide" id="slide-7">
+            <h1><i class="fas fa-question-circle"></i> Questions & Réponses</h1>
+            
+            <div style="margin: 2rem 0;">
+                <div class="job-card">
+                    <div class="job-title">
+                        <i class="fas fa-graduation-cap" style="color: var(--primary-500);"></i>
+                        Puis-je me reconvertir sans diplôme informatique ?
+                    </div>
+                    <p style="background: var(--primary-50); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                        <strong style="color: var(--primary-600);">Absolument !</strong> 60% des développeurs sont autodidactes ou issus d'autres domaines. Les compétences comptent plus que le diplôme. Vos expériences précédentes sont souvent des atouts : comptable → Data, technicien → Cyber, enseignant → Dev.
+                    </p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">
+                        <i class="fas fa-clock" style="color: var(--emerald-500);"></i>
+                        Combien de temps pour être employable ?
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div style="background: var(--primary-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                            <h4 style="color: var(--primary-600);">Développement</h4>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-500);">4-6 mois</div>
+                        </div>
+                        <div style="background: var(--emerald-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                            <h4 style="color: var(--emerald-600);">Data</h4>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--emerald-500);">6-8 mois</div>
+                        </div>
+                        <div style="background: var(--orange-50); padding: 1rem; border-radius: 12px; text-align: center;">
+                            <h4 style="color: var(--orange-600);">Cybersécurité</h4>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--orange-500);">8-12 mois</div>
+                        </div>
+                    </div>
+                    <p style="background: var(--emerald-50); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <i class="fas fa-lightbulb" style="color: var(--emerald-500);"></i>
+                        <strong>Conseil :</strong> 3-6 mois de formation intensive + portfolio solide = prêt pour le marché !
+                    </p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">
+                        <i class="fas fa-globe" style="color: var(--purple-500);"></i>
+                        Peut-on travailler en remote depuis le Bénin ?
+                    </div>
+                    <p style="background: var(--purple-50); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                        <strong style="color: var(--purple-600);">Oui, totalement !</strong> De nombreuses entreprises internationales recrutent en remote. Le Bénin a des avantages : timezone favorable avec l'Europe, coût de vie compétitif, talents de qualité. Des plateformes comme Andela facilitent ces connexions.
+                    </p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">
+                        <i class="fas fa-language" style="color: var(--orange-500);"></i>
+                        Faut-il maîtriser l'anglais ?
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                        <div>
+                            <h4 style="color: var(--orange-600); margin-bottom: 0.5rem;">Pour l'international</h4>
+                            <p style="background: var(--orange-50); padding: 1rem; border-radius: 8px;">
+                                <strong>Essentiel</strong> mais niveau intermédiaire suffisant pour commencer. S'améliore avec la pratique professionnelle.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-600); margin-bottom: 0.5rem;">Pour le local</h4>
+                            <p style="background: var(--primary-50); padding: 1rem; border-radius: 8px;">
+                                Moins critique au début, mais <strong>recommandé</strong> pour accéder à la documentation technique.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">
+                        <i class="fas fa-book" style="color: var(--emerald-500);"></i>
+                        Quelles sont les meilleures formations gratuites ?
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div style="background: var(--primary-50); padding: 1rem; border-radius: 12px;">
+                            <h4 style="color: var(--primary-600);"><i class="fas fa-code"></i> Développement</h4>
+                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem;">
+                                <li>• freeCodeCamp</li>
+                                <li>• The Odin Project</li>
+                                <li>• MDN Web Docs</li>
+                            </ul>
+                        </div>
+                        <div style="background: var(--emerald-50); padding: 1rem; border-radius: 12px;">
+                            <h4 style="color: var(--emerald-600);"><i class="fas fa-chart-line"></i> Data</h4>
+                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem;">
+                                <li>• Kaggle Learn</li>
+                                <li>• Google Analytics</li>
+                                <li>• Microsoft Learn</li>
+                            </ul>
+                        </div>
+                        <div style="background: var(--orange-50); padding: 1rem; border-radius: 12px;">
+                            <h4 style="color: var(--orange-600);"><i class="fas fa-shield-alt"></i> Cybersécurité</h4>
+                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem;">
+                                <li>• TryHackMe</li>
+                                <li>• Cybrary</li>
+                                <li>• OWASP</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Conclusion -->
+        <div class="slide" id="slide-8">
+            <h1><i class="fas fa-flag-checkered"></i> Conclusion & Ressources</h1>
+            
+            <div style="background: linear-gradient(135deg, var(--primary-500), var(--emerald-500)); color: white; padding: 3rem; border-radius: 24px; text-align: center; margin: 2rem 0;">
+                <h2 style="color: white; margin-bottom: 1.5rem;">Points Clés à Retenir</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div>
+                        <i class="fas fa-star" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h3 style="color: white; font-size: 1.2rem; margin-bottom: 0.5rem;">Valorise tes acquis</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Chaque compétence peut devenir une opportunité économique</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-heart" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h3 style="color: white; font-size: 1.2rem; margin-bottom: 0.5rem;">Soft Skills décisifs</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Comportement et communication sont essentiels</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-rocket" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h3 style="color: white; font-size: 1.2rem; margin-bottom: 0.5rem;">Commence petit</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Pense impact avec une approche pragmatique</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h3 style="color: white; font-size: 1.2rem; margin-bottom: 0.5rem;">Reste connecté</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Les communautés t'aident à progresser</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                <div class="card">
+                    <h3><i class="fas fa-download" style="color: var(--primary-500);"></i> Ressources à Télécharger</h3>
+                    <div style="margin-top: 1rem;">
+                        <div class="skill-tag" style="display: block; text-align: center; margin: 0.5rem 0; padding: 1rem;">
+                            <i class="fas fa-checklist"></i> Checklist complètes par métier
+                        </div>
+                        <div class="skill-tag" style="display: block; text-align: center; margin: 0.5rem 0; padding: 1rem;">
+                            <i class="fas fa-briefcase"></i> Modèles de portfolio
+                        </div>
+                        <div class="skill-tag" style="display: block; text-align: center; margin: 0.5rem 0; padding: 1rem;">
+                            <i class="fas fa-list"></i> Liste des formations
+                        </div>
+                        <div class="skill-tag" style="display: block; text-align: center; margin: 0.5rem 0; padding: 1rem;">
+                            <i class="fas fa-address-book"></i> Contacts et communautés
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-network-wired" style="color: var(--emerald-500);"></i> Communautés & Plateformes</h3>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: var(--primary-50); padding: 1rem; border-radius: 12px; margin: 0.75rem 0; border-left: 4px solid var(--primary-500);">
+                            <strong>Formations:</strong> OpenClassrooms, Coursera, FreeCodeCamp
+                        </div>
+                        <div style="background: var(--emerald-50); padding: 1rem; border-radius: 12px; margin: 0.75rem 0; border-left: 4px solid var(--emerald-500);">
+                            <strong>Freelance:</strong> Malt, Fiverr, Upwork, Codeur.com
+                        </div>
+                        <div style="background: var(--orange-50); padding: 1rem; border-radius: 12px; margin: 0.75rem 0; border-left: 4px solid var(--orange-500);">
+                            <strong>Communautés:</strong> 10.000 Codeurs, Women Techmakers
+                        </div>
+                        <div style="background: var(--purple-50); padding: 1rem; border-radius: 12px; margin: 0.75rem 0; border-left: 4px solid var(--purple-500);">
+                            <strong>Réseaux:</strong> LinkedIn Tech Bénin, Zindi Africa
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="background: linear-gradient(135deg, var(--emerald-100), var(--primary-100)); text-align: center;">
+                <h2 style="color: var(--primary-700); margin-bottom: 1.5rem;">
+                    <i class="fas fa-rocket" style="color: var(--emerald-500);"></i>
+                    Tu Veux Aller Plus Loin ?
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                    <div style="background: rgba(255, 255, 255, 0.8); padding: 1.5rem; border-radius: 16px;">
+                        <h4 style="color: var(--primary-600); margin-bottom: 0.5rem;">Formations 10.000 Codeurs</h4>
+                        <p>Soft skills, data, développement, design</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.8); padding: 1.5rem; border-radius: 16px;">
+                        <h4 style="color: var(--emerald-600); margin-bottom: 0.5rem;">Ateliers & Événements</h4>
+                        <p>Participe à nos prochaines sessions</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.8); padding: 1.5rem; border-radius: 16px;">
+                        <h4 style="color: var(--orange-600); margin-bottom: 0.5rem;">Communauté de Pratique</h4>
+                        <p>Ne marche plus seul dans ton parcours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--primary-600), var(--purple-600)); color: white; padding: 3rem; border-radius: 20px; margin-top: 3rem; text-align: center;">
+                <h2 style="color: white; margin-bottom: 1rem; font-size: 2.5rem;">
+                    <i class="fas fa-rocket" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                    Votre Aventure Numérique Commence Maintenant !
+                </h2>
+                <p style="color: rgba(255,255,255,0.95); font-size: 1.25rem; margin-bottom: 1.5rem;">
+                    <strong>Ne vous limitez pas à ce que vous avez appris aujourd'hui.</strong>
+                </p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem;">
+                    <strong>Continuez à vous former, à pratiquer et à partager.</strong>
+                </p>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">Proposé par :</p>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 16px; display: inline-block;">
+                        <h4 style="color: white;">Koffi Gilles Dieu-Donné TOSSA</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin: 0.5rem 0;">Hybrid Tech & Ops Professional | Founder @khapcod | Ambassadeur 10000 Codeurs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="qr-section" style="text-align:center; margin-top:2rem;">
+    <h3>Scannez pour mes contacts et les ressources concernant cet atelier</h3>
+    <img src="qr-code.png" alt="QR Code vers contacts et documents" style="width:160px; margin:1rem auto; display:block;">
+    <p>Ou visitez : <a href="contact.html" target="_blank">click here</a></p>
+</div>
+        </div>
+    </div>
+
+    <!-- Place this button where you want, e.g. top-right corner -->
+<button id="toggle-controls">Aide</button>
+
+<div class="controls hidden">
+    <div><i class="fas fa-keyboard"></i> Navigation</div>
+    <div>← → Suivant/Précédent</div>
+    <div>Espace Pause</div>
+    <div>F Plein écran</div>
+</div>
+
+    <div class="navigation">
+        <div class="nav-dots">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+            <div class="nav-dot" data-slide="3"></div>
+            <div class="nav-dot" data-slide="4"></div>
+            <div class="nav-dot" data-slide="5"></div>
+            <div class="nav-dot" data-slide="6"></div>
+            <div class="nav-dot" data-slide="7"></div>
+        </div>
+        <div class="nav-info">
+            <span id="current-slide">1</span> / <span>8</span> • <span id="slide-title">Introduction & Contexte</span>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
